@@ -84,7 +84,8 @@ class _TextScannerScreenState extends State<TextScannerScreen>
       for (TextBlock block in recognizedText.blocks) {
         final match = regExp.firstMatch(block.text);
         if (match != null) {
-          foundNumber = match.group(0)!;
+          final rawNumber = match.group(0)!;
+          foundNumber = int.parse(rawNumber).toString();
           break;
         }
       }
